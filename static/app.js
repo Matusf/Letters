@@ -90,8 +90,6 @@ class LettersApp {
 	}
 
 	getPressedKey(event) {
-		event.preventDefault()
-
 		if( this.gameOver ) return
 		let charCode = event.keyCode || event.which
 		let strCode = String.fromCharCode(charCode).toUpperCase()
@@ -165,7 +163,6 @@ class LettersApp {
 }
 
 $(document).ready( () => {
-
 	let canvas         = document.getElementById('canvas')
 	let exitWriteScore = document.querySelector('.exit-write-score')
 	let submitName     = document.querySelector('.submit')
@@ -176,7 +173,7 @@ $(document).ready( () => {
 
 	$(document).keypress( (event) => { app.getPressedKey(event) } )
 
-	startButton.on('click', (event) => { app.animateStart()	})
+	startButton.on('click',   () => { app.animateStart()	})
 	exitWriteScore.onclick 	= () => { $('#write-score').fadeOut(400) }
 	submitName.onclick 		= () => { app.sendScore() }
 })
