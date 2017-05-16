@@ -20,7 +20,6 @@ app.post('/', (req, res) => {
         if (err) throw err;
         data = JSON.parse(data)
         data.push(req.body)
-
         fs.writeFile('static/db.json', JSON.stringify( data ), (err) => {
             if (err) throw err;
         });

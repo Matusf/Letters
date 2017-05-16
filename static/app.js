@@ -66,7 +66,7 @@ class LettersApp {
 		let alphabet = 'QWERTYUIOPASDFGHJKLZXCVBNM'
 		let char = alphabet[ Math.floor( Math.random() * alphabet.length ) ]
 		let colour = Math.floor( Math.random() * this.letterColours.length )
-		this.letters.push( new Letter( this.canvas, char, Math.random() * this.canvas.width, -30, this.letterColours[colour] ) )
+		this.letters.push( new Letter( this.canvas, char, Math.random() * ( this.canvas.width - 30 ), -30, this.letterColours[colour] ) )
 
 		let obj = this
 		this.generateSpeed -= 10
