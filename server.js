@@ -16,11 +16,17 @@ app.use(bodyParser.urlencoded({extended : true}));
 app.use(bodyParser.json());
 
 app.post('/', (req, res) => {
+    // Check if post fulfills all the tests
+    if( !( 'name' in req.body && 'score' in req.body &&
+        !isNaN(req.body.score) ) ) return;
+
+    // Open DB
     fs.readFile('static/db.json', (err, data) => {
         if (err) throw err;
         data = JSON.parse(data)
         data.push(req.body)
 
+        // Write to DB
         fs.writeFile('static/db.json', JSON.stringify( data ), (err) => {
             if (err) throw err;
         });
