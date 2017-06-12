@@ -1,0 +1,205 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+
+    background-color: #5d5d5d;
+    color: #fff;
+
+    text-align: center;
+    font-family: Arial;
+    font-weight: 300;
+}
+
+ul {
+    font-family: 'Mogra', cursive;
+    font-weight: 300;
+    letter-spacing: .01em;
+    background-color: #FF5722;
+    font-size: 3em;
+    padding: .3em 0 .05em 2em;
+    margin-top: 0;
+    overflow: hidden;
+}
+
+ul li {
+    display: inline-block;
+}
+
+li:first-child {
+    float: left;
+}
+
+#score-counter {
+    font-size: .5em;
+    padding: .8em 7%;
+    float: right;
+    vertical-align: middle;
+}
+
+.wrapper {
+    max-width: 1500px;
+    margin: 0 auto;
+}
+
+main {
+    position: relative;
+    width: 75%;
+    margin: 0;
+    padding: 1em;
+    display: inline-block;
+}
+
+canvas {
+    margin: 0;
+    background-color: #ebebeb;
+    display: inline-block;
+}
+
+aside {
+    margin-right: 2%;
+    width: 23%;
+    padding: 1em;
+    float: right;
+    text-align: center;
+}
+
+#start-button {
+    vertical-align: top;
+    text-decoration: none;
+    color: #fff;
+    display: block;
+    padding: 1em;
+    margin: 0;
+    background-color: #FF5722;
+    margin-bottom: 1em;
+}
+
+#start-button:hover {
+    background-color: #EE4611;
+}
+
+.score-wrapper {
+    max-height: 634px;
+    overflow-y: scroll;
+}
+
+table {
+    background-color: rgba(0, 0, 0, .75);
+    vertical-align: top;
+    padding: 1em;
+    width: 100%;
+    max-height: 602px;
+    border-collapse: collapse;
+}
+
+table thead {
+    border-bottom: 2px dashed #EE4611;
+}
+
+table thead tr th {
+    padding: .75em;
+}
+
+table tbody {
+    overflow-y: scroll;
+}
+
+tbody::before,
+tbody::after {
+  content: '';
+  display: block;
+  height: .5em;
+
+}
+
+table td {
+    padding: .25em;
+}
+
+
+/* WRITE SCORE POPUP */
+#write-score {
+    box-sizing: content-box;
+    background-color: rgba(0, 0, 0, .8);
+    color: #eee;
+    display: none;
+
+    padding: 1em 1em 1em 1em;
+    width: 480px;
+    position: absolute;
+    top: 30%;
+    left: calc(50% - 264px);
+    font-size: 1.5em;
+}
+
+#write-score .exit-write-score {
+    position: absolute;
+    top: 2px;
+    right: 10px;
+    cursor: pointer;
+}
+
+#write-score .exit-write-score:hover {
+    color: #FF5722;
+}
+
+#write-score input {
+    outline: none;
+    max-width: 250px;
+    font-size: 1.2em;
+    background-color: inherit;
+    color: #FF5722;
+    border: none;
+    border-bottom: 2px #FF5722 solid;
+}
+
+#write-score input:focus {
+    border-bottom: 2px #fff solid;
+}
+
+#write-score button {
+    background-color: inherit;
+    color: #fff;
+    border: none;
+    font-size: .75em;
+    outline: none;
+    padding: .5em;
+}
+
+#write-score button:hover {
+    background-color: #FF5722;
+}
+
+#write-score p {
+    text-align: center;
+    font-size: 2em;
+    margin: .3em .25em 0em .25em;
+}
+
+@media screen and (max-width: 1210px) {
+    main {
+        width: 100%;
+        text-align: center;
+        display: block;
+    }
+
+    aside {
+        max-width: 835px;
+        width: 100%;
+        float: none;
+        display: block;
+        margin: 0 auto;
+    }
+
+    #write-score {
+        left: calc(50% - 200px - 2.5em);
+    }
+
+    .score-wrapper {
+        max-height: 2000px;
+    }
+}

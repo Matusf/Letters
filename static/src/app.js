@@ -26,11 +26,15 @@ class LettersApp {
 	constructor(canvas, leaderboard) {
 		this.canvas = canvas
 		this.leaderboard = leaderboard
+		this.scoreCounter = $('#score-counter')
 		this.getScore()
 	}
 
 	animateStart() {
 		if( this.onGoing ) return
+		// Erase html score
+		this.scoreCounter.text('Your score: 0')
+
 		this.onGoing = true
 		let obj = this
 		let context = this.canvas.getContext("2d")
@@ -51,7 +55,7 @@ class LettersApp {
 		this.letters = []
 		this.score = 0
 		this.gameOver = false
-		this.generateSpeed = 1200
+		this.generateSpeed = 1000
 		this.scoreTable = {}
 		this.letterColours = ['#ff0000', '#ff0040', '#ff8800', '#ff0000', '#ff4000', '#4d0000',
 							  '#3B5323', '#2F4F2F', '#008B00', '#2E8B57', '#5588dd', '#457371']
@@ -70,7 +74,7 @@ class LettersApp {
 
 		let obj = this
 		this.generateSpeed -= 10
-		setTimeout( () => { obj.generateLetter() }, obj.generateSpeed)
+		setTimeout( () => { obj.generateLetter() }, Math.max( obj.generateSpeed, 50 ))
 	}
 
 	moveLetters() {
@@ -105,6 +109,8 @@ class LettersApp {
 				obj.letters.splice(index, 1)
 				obj.score += 1
 				playerScored = true
+				// Increase html score
+				obj.scoreCounter.text('Your score: ' + obj.score)
 			}
 		})
 		if ( !playerScored ) this.endGame()

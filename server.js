@@ -6,7 +6,7 @@ let fs = require('fs')
 
 let app = express()
 
-app.use(express.static('static'))
+app.use(express.static('static/dist/'))
 
 app.get('/', function (req, res) {
     res.sendFile('index.html')
@@ -21,13 +21,13 @@ app.post('/', (req, res) => {
         !isNaN(req.body.score) ) ) return;
 
     // Open DB
-    fs.readFile('static/db.json', (err, data) => {
+    fs.readFile('db.json', (err, data) => {
         if (err) throw err;
         data = JSON.parse(data)
         data.push(req.body)
 
         // Write to DB
-        fs.writeFile('static/db.json', JSON.stringify( data ), (err) => {
+        fs.writeFile('db.json', JSON.stringify( data ), (err) => {
             if (err) throw err;
         });
     })

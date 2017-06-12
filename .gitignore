@@ -1,4 +1,4 @@
 node_modules
 
-/static/db.json
-/static/style.css
+/static/src/db.json
+/static/src/style.css

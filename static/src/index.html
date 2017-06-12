@@ -4,16 +4,19 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<title>etters</title>
-		<link rel="stylesheet" href="style_prefixed.css">
+		<link href="https://fonts.googleapis.com/css?family=Mogra" rel="stylesheet">
+		<link rel="stylesheet" href="style.css">
 		<link rel="icon" href="favico.png" sizes="32x32">
 	</head>
 	<body>
-		<h1>Letters</h1>
+		<ul>
+			<li>Letters</li>
+			<li id="score-counter">Your score: 0</li>
+		</ul>
 		<div class="wrapper">
 			<main>
 				<canvas id="canvas" width="800px" height="700px">
 				</canvas>
-
 				<div id="write-score">
 					<span>
 						Your name: <input type="text" autofocus>
@@ -22,6 +25,7 @@
 						<p class="display-score"></p>
 					</span>
 				</div>
+
 			</main>
 			<aside>
 				<a href="#" id="start-button">START GAME</a>
@@ -44,6 +48,6 @@
 			src="https://code.jquery.com/jquery-3.2.1.min.js"
 			integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
 			crossorigin="anonymous"></script>
-		<script src="compiled_app.js" type="text/javascript"></script>
+		<script src="app.js" type="text/javascript"></script>
 	</body>
 </html>
